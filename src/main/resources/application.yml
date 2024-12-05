@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: api-with-ratelimit
+
+bucket4j:
+  enabled: true # enable/disable bucket4j support
+  cache-to-use: jcache
