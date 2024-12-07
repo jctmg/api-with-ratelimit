@@ -1,34 +1,10 @@
 spring:
   application:
     name: api-with-ratelimit
-  cache:
-    jcache:
-      config: config/ehcache.xml
+
 logging:
   level:
-    root: "debug"
-    com.bucket4j: "debug"
-    io.github.bucket4j: "debug"
+    root: "info"
 
 bucket4j:
-  enabled: true
-  debug: true
-  cache-to-use: jcache
-  methods:
-    - name: not_an_admin # the name of the configuration for annotation reference
-      cache-name: buckets # the name of the cache
-      rate-limit:
-        bandwidths:
-          - capacity: 5 # refills 5 tokens every 10 seconds (intervall)
-            time: 30
-            unit: seconds
-            refill-speed: interval
-  default-method-metric-tags:
-    - key: IP
-      expression: "@testServiceImpl.getRemoteAddr()" # reference to a bean method to fill the metric key
-      types:
-        - REJECTED_COUNTER
-        - CONSUMED_COUNTER
-        - PARKED_COUNTER
-        - INTERRUPTED_COUNTER
-        - DELAYED_COUNTER
+  enabled: false
